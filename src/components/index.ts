@@ -1,0 +1,12 @@
+export { Header } from "./Header";
+export { HeroSection } from "./HeroSection";
+export { TestimonialsHeroSection } from "./TestimonialsHeroSection";
+export { WorkflowShowcaseSection } from "./WorkflowShowcaseSection";
+export { WhatMakesRootsSpecialSection } from "./WhatMakesRootsSpecialSection";
+export { FeaturesSection } from "./FeaturesSection";
+export { BenefitsSection } from "./BenefitsSection";
+export { WhyRootSection } from "./WhyRootSection";
+export { PricingSection } from "./PricingSection";
+export { FAQSection } from "./FAQSection";
+export { CTASection } from "./CTASection";
+export { Footer } from "./Footer";

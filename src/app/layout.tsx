@@ -1,17 +1,11 @@
 import type { Metadata } from "next";
-import { Outfit, Syne } from "next/font/google";
+import { Bebas_Neue } from "next/font/google";
 import "./globals.css";
 
-const outfit = Outfit({
-  variable: "--font-outfit",
+const bebasNeue = Bebas_Neue({
+  variable: "--font-bebas-neue",
   subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const syne = Syne({
-  variable: "--font-syne",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: "400",
 });
 
 export const metadata: Metadata = {
@@ -28,7 +22,8 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${outfit.variable} ${syne.variable} h-full antialiased`}
+      className={`h-full antialiased`}
+      // className={`${bebasNeue.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>
