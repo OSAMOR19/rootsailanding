@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="640" viewBox="0 0 1200 640" fill="none">
+  <rect width="1200" height="640" rx="20" fill="#0a0a0a"/>
+  <rect x="0" y="0" width="1200" height="72" fill="#121212"/>
+  <text x="40" y="46" fill="#42FF00" font-family="system-ui, sans-serif" font-size="20" font-weight="700" letter-spacing="0.25em">ROOTS</text>
+  <rect x="48" y="120" width="300" height="52" rx="10" stroke="#2a2a2a" stroke-width="1" fill="#080808"/>
+  <text x="64" y="152" fill="#6b6b6b" font-family="system-ui, sans-serif" font-size="15">What drums do you want?</text>
+  <circle cx="600" cy="340" r="88" stroke="#42FF00" stroke-width="2" fill="#0d0d0d"/>
+  <path d="M600 292c-13 0-24 11-24 24v48c0 13 11 24 24 24s24-11 24-24v-48c0-13-11-24-24-24z" fill="#42FF00" opacity="0.9"/>
+  <path d="M552 364v12c0 26 22 48 48 48s48-22 48-48v-12" stroke="#42FF00" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <line x1="600" y1="424" x2="600" y2="456" stroke="#42FF00" stroke-width="3" stroke-linecap="round"/>
+  <line x1="568" y1="456" x2="632" y2="456" stroke="#42FF00" stroke-width="3" stroke-linecap="round"/>
+  <rect x="852" y="288" width="220" height="48" rx="10" fill="#2ecc2e"/>
+  <text x="912" y="318" fill="#fff" font-family="system-ui, sans-serif" font-size="14" font-weight="600">FIND SAMPLES</text>
+  <rect x="852" y="352" width="220" height="48" rx="10" stroke="#4a4a4a" stroke-width="1" fill="transparent"/>
+  <text x="888" y="382" fill="#e5e5e5" font-family="system-ui, sans-serif" font-size="14" font-weight="500">BROWSE DRUMS</text>
+</svg>
