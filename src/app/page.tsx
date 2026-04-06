@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black">
       <Header />
-      <main>
+      <main className="overflow-x-hidden">
         <HeroSection />
         <TestimonialsHeroSection />
         <WorkflowShowcaseSection />

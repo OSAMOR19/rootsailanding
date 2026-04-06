@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 
@@ -19,7 +21,7 @@ export function HeroSection() {
     },
   ];
   return (
-    <section className="relative pt-20 pb-24 bg-black md:pt-20 md:pb-32">
+    <section className="relative pt-20 bg-black md:pt-20 pb-20">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <p className="mb-4 text-sm font-medium rounded-[20px] bg-[#2DDB161A] py-1 px-4 max-w-fit mx-auto uppercase tracking-widest text-[#2DDB16]">
           AI-POWERED DRUM PLUGIN
@@ -32,7 +34,7 @@ export function HeroSection() {
           and helps you find the right African inspired drum loops from a real,
           handcrafted library, so your drums fit perfectly eveytime
         </p>
-        <div className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
+        <div className="my-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link
             href="#"
             className="inline-flex h-12 items-center justify-center rounded-[15px] bg-[#249415] px-8 text-sm font-semibold text-white transition hover:bg-[#249415]/80"
@@ -41,37 +43,36 @@ export function HeroSection() {
           </Link>
         </div>
         <Image
-          src="/heroimg.webp"
+          src="/heroimg.jpg"
           alt="ROOTS"
           width={1000}
           height={1000}
-          className="mt-12"
-        />
+       />
+      </div>
 
-        <div className="flex items-center justify-center gap-4 -mt-32 bg-black z-10 w-full h-16">
-          {/* {roots.map((root, index) => (
-            <div key={index}>{root.val}</div>
-          ))} */}
-           <div className="font-display flex items-center gap-2 text-white text-xl font-semibold tracking-tight">
-          <Image
-            src="/logo.avif"
-            alt="ROOTS"
-            width={50}
-            height={50}
-            className="w-10 h-10"
-          />
-          ROOTS
-        </div>
-        <div className="font-display flex items-center gap-2 text-white text-xl font-semibold tracking-tight">
-          <Image
-            src="/logo.avif"
-            alt="ROOTS"
-            width={50}
-            height={50}
-            className="w-10 h-10"
-          />
-          ROOTS
-        </div>
+      <div className="flex absolute max-w-4xl mx-auto right-0 left-0 items-start pt-7 justify-center gap-4 bg-black w-full h-[100px]">
+        <div className="w-full overflow-hidden relative">
+          <div
+            className="flex gap-20 animate-scroll-left"
+            style={{
+              minWidth: "fit-content",
+              animation: "scroll-left 16s linear infinite",
+            }}
+          >
+            {Array.from({ length: 16 }).map((_, index) => (
+              <div key={index}>{roots[0].val}</div>
+            ))}
+          </div>
+          <style jsx>{`
+            @keyframes scroll-left {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+          `}</style>
         </div>
       </div>
     </section>

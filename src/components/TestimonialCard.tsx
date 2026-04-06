@@ -26,7 +26,7 @@ export function TestimonialCard({
   const ring = ringByAccent[accent];
 
   return (
-    <div className="flex flex-col rounded-[24px] border border-white/[0.08] bg-gradient-to-b from-[#1c1c1c] from-0% via-[#0f0f0f] to-black px-6 py-8 md:px-10 md:py-10">
+    <div className="flex flex-col rounded-[24px] border border-white/[0.08] bg-[#1c1c1c] w-[100%] px-6 py-8 md:px-10 md:py-10">
       <div className="flex items-end justify-center gap-1.5 md:gap-2.5">
         {portraits.map((src, i) => {
           const isCenter = i === 2;

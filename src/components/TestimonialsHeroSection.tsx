@@ -1,3 +1,5 @@
+
+"use client" 
 import { TestimonialCard } from "./TestimonialCard";
 
 const MARCUS_PORTRAITS = [
@@ -18,21 +20,25 @@ const PAUL_PORTRAITS = [
 
 export function TestimonialsHeroSection() {
   return (
-    <section className="bg-black py-16 md:py-24">
+    <section className="bg-black pt-20">
       <div className="mx-auto max-w-[1200px] px-6">
         <header className="text-center">
-          <h2 className="font-display text-3xl font-bold uppercase leading-tight tracking-wid text-white md:text-3xl lg:text-[2.75rem] lg:leading-[1.15]">
-            What industry professionals are saying about <br/>ROOTS.
+          <h2 className="font-display text-3xl font-bold uppercase leading-tight text-white md:text-3xl lg:text-[1.75rem] max-w-3xl mx-auto lg:leading-[1.15]">
+            What industry professionals are saying about ROOTS.
           </h2>
           <p
-            className="mx-auto mt-6 text-sm leading-relaxed text-zinc-400 md:mt-8 md:text-base [font-family:ui-sans-serif,system-ui,sans-serif]"
+            className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-zinc-400 md:mt-8 md:text-base [font-family:ui-sans-serif,system-ui,sans-serif]"
           >
             Got questions? We&apos;ve got answers. Everything you need to know
             about bringing authentic Afrobeat rhythms to your productions.
           </p>
         </header>
 
-        <div className="mt-14 grid gap-6 md:mt-20 md:grid-cols-2 md:gap-8">
+        <div className="mt-14 flex gap-6 md:mt-20 md:flex md:gap-8 justify-center items-center"
+         style={{
+          minWidth: "fit-content",
+          animation: "scroll-left 16s linear infinite",
+        }}>
           <TestimonialCard
             accent="white"
             quote="ROOTS change my workflow completely. The AI understands exactly what I need, and the drum library is incredible."
@@ -47,6 +53,44 @@ export function TestimonialsHeroSection() {
             role="Producer"
             portraits={PAUL_PORTRAITS}
           />
+          <TestimonialCard
+            accent="white"
+            quote="ROOTS change my workflow completely. The AI understands exactly what I need, and the drum library is incredible."
+            name="Marcus Johnson"
+            role="Grammy Nominated Producer"
+            portraits={MARCUS_PORTRAITS}
+          />
+          <TestimonialCard
+            accent="green"
+            quote="ROOTS save me hours. The prompt features is genius. I just describe what I want and it delivers."
+            name="Paul Ogedengbe"
+            role="Producer"
+            portraits={PAUL_PORTRAITS}
+          />
+          <TestimonialCard
+            accent="green"
+            quote="ROOTS save me hours. The prompt features is genius. I just describe what I want and it delivers."
+            name="Paul Ogedengbe"
+            role="Producer"
+            portraits={PAUL_PORTRAITS}
+          />
+          <TestimonialCard
+            accent="green"
+            quote="ROOTS save me hours. The prompt features is genius. I just describe what I want and it delivers."
+            name="Paul Ogedengbe"
+            role="Producer"
+            portraits={PAUL_PORTRAITS}
+          />
+           <style jsx>{`
+            @keyframes scroll-left {
+              0% {
+                transform: translateX(0);
+              }
+              100% {
+                transform: translateX(-50%);
+              }
+            }
+          `}</style>
         </div>
       </div>
     </section>
