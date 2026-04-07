@@ -6,6 +6,7 @@ import {
   FaYoutube,
 } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import Image from "next/image"
 
 const productLinks = [
   { label: "Features", href: "#features" },
@@ -32,20 +33,13 @@ export function Footer() {
         <div className="flex flex-col gap-14 md:flex-row md:justify-between md:gap-10">
           <div className="max-w-sm">
             <Link href="#" className="inline-flex items-center gap-2.5">
-              <span className="flex size-10 items-center justify-center rounded-lg bg-[#22C55E]">
-                <svg
-                  viewBox="0 0 24 24"
-                  className="ml-0.5 size-5 fill-black"
-                  aria-hidden
-                >
-                  <path d="M8 5.14v13.72L19 12 8 5.14z" />
-                </svg>
-              </span>
+            <Image src="/logo.avif" alt="ROOTS" width={50} height={50} className="w-10 h-10" />
+
               <span className="font-display text-xl font-bold tracking-wide text-white">
                 ROOTS
               </span>
             </Link>
-            <p className="mt-4 text-sm lg:max-w-[70%] leading-relaxed text-white [font-family:ui-sans-serif,system-ui,sans-serif]">
+            <p className="mt-4 text-md lg:max-w-[70%] leading-relaxed text-white [font-family:ui-sans-serif,system-ui,sans-serif]">
               Ready to elevate your Afrobeat production? Start creating authentic
               rhythms today.
             </p>
@@ -65,7 +59,7 @@ export function Footer() {
 
           <div className="flex flex-wrap gap-12 sm:gap-20 md:justify-end">
             <div>
-              <p className="text-sm font-semibold text-white [font-family:ui-sans-serif,system-ui,sans-serif]">
+              <p className="text-md font-semibold text-white [font-family:ui-sans-serif,system-ui,sans-serif]">
                 Product
               </p>
               <ul className="mt-4 space-y-3">
@@ -73,7 +67,7 @@ export function Footer() {
                   <li key={l.href + l.label}>
                     <Link
                       href={l.href}
-                      className="text-sm text-zinc-400 transition hover:text-white [font-family:ui-sans-serif,system-ui,sans-serif]"
+                      className="text-md text-zinc-400 transition hover:text-white [font-family:ui-sans-serif,system-ui,sans-serif]"
                     >
                       {l.label}
                     </Link>
@@ -82,7 +76,7 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <p className="text-sm font-semibold text-white [font-family:ui-sans-serif,system-ui,sans-serif]">
+              <p className="text-md font-semibold text-white [font-family:ui-sans-serif,system-ui,sans-serif]">
                 Support
               </p>
               <ul className="mt-4 space-y-3">
@@ -90,7 +84,7 @@ export function Footer() {
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="text-sm text-zinc-400 transition hover:text-white [font-family:ui-sans-serif,system-ui,sans-serif]"
+                      className="text-md text-zinc-400 transition hover:text-white [font-family:ui-sans-serif,system-ui,sans-serif]"
                     >
                       {l.label}
                     </Link>

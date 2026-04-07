@@ -20,10 +20,10 @@ const PAUL_PORTRAITS = [
 
 export function TestimonialsHeroSection() {
   return (
-    <section className="bg-black pt-20">
+    <section className="bg-black lg:pt-20">
       <div className="mx-auto max-w-[1200px] px-6">
         <header className="text-center">
-          <h2 className="font-display text-3xl font-bold uppercase leading-tight text-white md:text-3xl lg:text-[1.75rem] max-w-3xl mx-auto lg:leading-[1.15]">
+          <h2 className="font-display text-xl font-bold uppercase leading-tight text-white md:text-3xl lg:text-[1.75rem] max-w-3xl mx-auto lg:leading-[1.15]">
             What industry professionals are saying about ROOTS.
           </h2>
           <p

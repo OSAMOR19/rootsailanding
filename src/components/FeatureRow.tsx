@@ -15,7 +15,6 @@ function FeatureRowImage({ src }: { src: string }) {
 
   if (isSvg) {
     return (
-      // eslint-disable-next-line @next/next/no-img-element -- SVG asset; avoids next/image SVG quirks
       <img
         src={src}
         alt=""
@@ -31,9 +30,11 @@ function FeatureRowImage({ src }: { src: string }) {
       <Image
         src={src}
         alt=""
-        fill
+        // fill
         className="object-contain object-top"
-        sizes="(max-width: 1200px) 100vw, 600px"
+        // sizes="(width: 1500px) 100vw, 600px"
+        width={1700}
+        height={740}
       />
     </div>
   );
@@ -50,28 +51,28 @@ export function FeatureRow({
   return (
     <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14 lg:gap-20">
       <div className="flex flex-col gap-4 md:max-w-xl">
-        <span className="inline-flex w-fit rounded-full bg-[#2DDB161A] px-3 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-[#2DDB16] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-xs">
+        <span className="inline-flex w-fit rounded-full bg-[#2DDB161A] font-light px-3 py-1.5 text-[11px] uppercase tracking-wider text-[#2DDB16] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-xs">
           {badge}
         </span>
-        <h3 className="flex items-center gap-3 font-display text-2xl font-bold uppercase leading-tight tracking-wide text-white md:gap-4 md:text-3xl">
+        <h3 className="flex items-center gap-3 font-display text-xl font-bold uppercase leading-tight tracking-wide text-white md:gap-4 md:text-xl">
           <Icon
-            className="size-7 shrink-0 text-[#42FF00] md:size-8"
+            className="size-7 shrink-0 text-white md:size-8"
             strokeWidth={2}
             aria-hidden
           />
           {title}
         </h3>
-        <p className="text-sm leading-relaxed text-white/90 md:text-base [font-family:ui-sans-serif,system-ui,sans-serif]">
+        <p className="text-sm leading-relaxed text-white/90 md:text-sm [font-family:ui-sans-serif,system-ui,sans-serif]">
           {description}
         </p>
         {secondaryText ? (
-          <p className="text-sm font-medium text-[#42FF00] [font-family:ui-sans-serif,system-ui,sans-serif]">
+          <p className="text-sm font-light block text-[#42FF00] [font-family:ui-sans-serif,system-ui,sans-serif]">
             {secondaryText}
           </p>
         ) : null}
       </div>
       <div className="min-w-0">
-        <FeatureRowImage src={imageSrc} />
+        <FeatureRowImage src={"/image1.webp"} />
       </div>
     </div>
   );

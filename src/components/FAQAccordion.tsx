@@ -64,7 +64,7 @@ export function FAQAccordion() {
               onClick={() => setOpenIndex(isOpen ? null : i)}
               className="flex w-full items-start justify-between gap-4 py-5 text-left transition hover:text-white/90"
             >
-              <span className="text-[15px] font-medium leading-snug text-white [font-family:ui-sans-serif,system-ui,sans-serif] md:text-base">
+              <span className="text-[15px] font-medium leading-snug text-white [font-family:ui-sans-serif,system-ui,sans-serif] md:text-lg">
                 {item.q}
               </span>
               <span className="mt-0.5 shrink-0 text-white">

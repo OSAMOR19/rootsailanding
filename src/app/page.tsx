@@ -8,7 +8,7 @@ import {
   FAQSection,
   Footer,
 } from "@/components";
-
+import Authentic from "@/components/Authentic";
 export default function Home() {
   return (
     <div className="min-h-screen bg-black">
@@ -18,6 +18,7 @@ export default function Home() {
         <TestimonialsHeroSection />
         <WorkflowShowcaseSection />
         <WhatMakesRootsSpecialSection />
+        <Authentic />
         <PricingSection />
         <FAQSection />
       </main>

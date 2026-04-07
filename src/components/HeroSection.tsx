@@ -21,7 +21,7 @@ export function HeroSection() {
     },
   ];
   return (
-    <section className="relative pt-20 bg-black md:pt-20 pb-20">
+    <section className="pt-20 bg-black md:pt-20 pb-20">
       <div className="mx-auto max-w-4xl px-6 text-center">
         <p className="mb-4 text-sm font-medium rounded-[20px] bg-[#2DDB161A] py-1 px-4 max-w-fit mx-auto uppercase tracking-widest text-[#2DDB16]">
           AI-POWERED DRUM PLUGIN
@@ -50,7 +50,7 @@ export function HeroSection() {
        />
       </div>
 
-      <div className="flex absolute max-w-4xl mx-auto right-0 left-0 items-start pt-7 justify-center gap-4 bg-black w-full h-[100px]">
+      <div className="flex max-w-4xl mx-auto items-start pt-7 justify-center gap-4 bg-black w-full h-[100px]">
         <div className="w-full overflow-hidden relative">
           <div
             className="flex gap-20 animate-scroll-left"

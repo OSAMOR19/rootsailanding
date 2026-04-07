@@ -18,21 +18,21 @@ function resolveShowcaseImageSrc():
 export function WorkflowShowcaseSection() {
 
   return (
-    <section id="library" className="bg-black py-16 md:py-24">
+    <section id="library" className="bg-black md:py-24 py-16">
       <div className="mx-auto flex max-w-[1200px] flex-col items-center px-6">
         <div className="flex w-full flex-col items-center text-center">
-          <h2 className="font-display text-4xl font-bold uppercase leading-[1.5] tracking-[0.03em] text-white">
+          <h2 className="font-display lg:text-4xl text-xl font-bold uppercase leading-[1.5] tracking-[0.03em] text-white">
             The smartest way to build afrobeats &amp; modern
             <br />
             <span className="text-[#42FF00]">African drums</span>
           </h2>
-          <p className="mx-auto mt-6 max-w-[38rem] text-sm font-normal leading-relaxed text-white md:mt-8 md:text-base">
+          <p className="mx-auto mt-2 max-w-[38rem] text-sm font-normal leading-relaxed text-white md:mt-2 md:text-base">
             See how ROOTS revolutionizes your drum workflow with intelligent AI
             recommendations
           </p>
         </div>
 
-        <div className="mt-8 w-[80%] h-[500px]">
+        <div className="w-[80%] lg:h-[500px]">
            <video src="/workflow.mp4"  controls loop muted className="h-auto w-full rounded-[20px] aspect-[800/640]" />
         </div>
       </div>

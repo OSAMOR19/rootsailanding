@@ -17,25 +17,25 @@ function resolveFaqSideImage():
 }
 
 function FAQSideImage({ src }: { src: string }) {
-  const isSvg = src.endsWith(".svg");
+  // const isSvg = src.endsWith(".svg");
 
-  if (isSvg) {
-    return (
-      // eslint-disable-next-line @next/next/no-img-element -- SVG asset; avoids next/image SVG quirks
-      <img
-        src={src}
-        alt=""
-        className="mt-10 h-auto w-full rounded-[20px] border border-white/[0.08]"
-        width={560}
-        height={420}
-      />
-    );
-  }
+  // if (isSvg) {
+  //   return (
+  //     // eslint-disable-next-line @next/next/no-img-element -- SVG asset; avoids next/image SVG quirks
+  //     <img
+  //       src={src}
+  //       alt=""
+  //       className="mt-10 h-auto w-full rounded-[20px] border border-white/[0.08]"
+  //       width={560}
+  //       height={420}
+  //     />
+  //   );
+  // }
 
   return (
     <div className="relative mt-10 aspect-[560/420] w-full overflow-hidden rounded-[20px] border border-white/[0.08] bg-zinc-900">
       <Image
-        src={src}
+        src={"/faqimage.avif"}
         alt="Producer with headphones in the studio"
         fill
         className="object-cover object-center"

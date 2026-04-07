@@ -44,7 +44,7 @@ const FEATURES: FeatureItem[] = [
     title: "Built on Real Drums",
     description:
       "Every drum kit in ROOTS is human-made, professionally produced, and naturally authentic.",
-    secondaryText: "No AI-generated fuzziness.",
+    secondaryText: "No AI-generated fake drums.",
   },
   {
     badge: "Curated library",
@@ -57,9 +57,9 @@ const FEATURES: FeatureItem[] = [
 
 export function WhatMakesRootsSpecialSection() {
   return (
-    <section id="features" className="bg-black py-20 md:py-28">
+    <section id="features" className="bg-black py-0 md:py-28 lg:mt-36">
       <div className="mx-auto max-w-[1200px] px-6">
-        <h2 className="text-left font-display text-[clamp(1.75rem,4vw,3rem)] font-bold uppercase leading-tight tracking-[0.03em] text-white">
+        <h2 className="text-left font-display lg:text-4xl text-xl font-bold uppercase leading-tight tracking-[0.03em] text-white">
           What makes <span className="text-[#42FF00]">roots</span>{" "}
           special
         </h2>
