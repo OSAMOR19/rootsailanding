@@ -59,7 +59,7 @@ export function WhatMakesRootsSpecialSection() {
   return (
     <section id="features" className="bg-black py-0 md:py-28 lg:mt-36">
       <div className="mx-auto max-w-[1200px] px-6">
-        <h2 className="text-left font-display lg:text-4xl text-xl font-bold uppercase leading-tight tracking-[0.03em] text-white">
+        <h2 className="text-left font-display text-2xl font-bold uppercase leading-tight tracking-[0.03em] text-white md:text-4xl">
           What makes <span className="text-[#42FF00]">roots</span>{" "}
           special
         </h2>

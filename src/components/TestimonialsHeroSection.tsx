@@ -23,11 +23,11 @@ export function TestimonialsHeroSection() {
     <section className="bg-black lg:pt-20">
       <div className="mx-auto max-w-[1200px] px-6">
         <header className="text-center">
-          <h2 className="font-display text-xl font-bold uppercase leading-tight text-white md:text-3xl lg:text-[1.75rem] max-w-3xl mx-auto lg:leading-[1.15]">
+          <h2 className="font-display text-2xl font-bold uppercase leading-tight text-white md:text-4xl max-w-3xl mx-auto">
             What industry professionals are saying about ROOTS.
           </h2>
           <p
-            className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-zinc-400 md:mt-8 md:text-base [font-family:ui-sans-serif,system-ui,sans-serif]"
+            className="mx-auto mt-6 max-w-xl text-sm leading-relaxed text-white/70 md:mt-8 md:text-base [font-family:ui-sans-serif,system-ui,sans-serif]"
           >
             Got questions? We&apos;ve got answers. Everything you need to know
             about bringing authentic Afrobeat rhythms to your productions.

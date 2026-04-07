@@ -24,10 +24,10 @@ export function PricingSection() {
     <section id="pricing" className="bg-black py-20 md:py-28">
       <div className="mx-auto max-w-[1200px] px-6">
         <header className="text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#42FF00] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-2xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#42FF00] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-sm">
             Our plans
           </p>
-          <h2 className="mt-4 font-display text-2xl font-bold uppercase leading-tight tracking-[0.02em] text-white">
+          <h2 className="mt-4 font-display text-2xl font-bold uppercase leading-tight tracking-[0.02em] text-white md:text-4xl">
             Get rooted today!
           </h2>
         </header>
@@ -42,10 +42,10 @@ export function PricingSection() {
               </span>
             </div>
 
-            <h3 className="font-display text-2xl font-bold uppercase tracking-wide text-white md:text-3xl">
+            <h3 className="font-display text-xl font-bold uppercase tracking-wide text-white md:text-2xl">
               ROOTS PRO
             </h3>
-            <p className="mt-1 text-xs text-[#6ee7a8]/90 [font-family:ui-sans-serif,system-ui,sans-serif] md:text-sm">
+            <p className="mt-1 text-sm text-[#6ee7a8]/90 [font-family:ui-sans-serif,system-ui,sans-serif] md:text-base">
               Full power, unlimited access
             </p>
 
@@ -65,7 +65,7 @@ export function PricingSection() {
               {PRO_FEATURES.map((line) => (
                 <li
                   key={line}
-                  className="flex items-center gap-2 text-md text-white [font-family:ui-sans-serif,system-ui,sans-serif] md:text-[13px]"
+                  className="flex items-center gap-2 text-sm text-white [font-family:ui-sans-serif,system-ui,sans-serif] md:text-base"
                 >
                   <Check
                     className="size-3.5 shrink-0 text-white"
@@ -88,10 +88,10 @@ export function PricingSection() {
           {/* ROOTS LITE */}
           <div className="flex h-full flex-col rounded-2xl bg-white p-5 ring-1 ring-white/10 md:p-6">
             {/* <div className="mb-4 flex items-start justify-between gap-3"></div> */}
-            <h3 className="font-display text-2xl font-bold uppercase tracking-wide text-black md:text-3xl">
+            <h3 className="font-display text-xl font-bold uppercase tracking-wide text-black md:text-2xl">
               ROOTS LITE
             </h3>
-            <p className="mt-1 text-xs text-zinc-500 [font-family:ui-sans-serif,system-ui,sans-serif] md:text-sm">
+            <p className="mt-1 text-sm text-zinc-500 [font-family:ui-sans-serif,system-ui,sans-serif] md:text-base">
               Try before you commit
             </p>
 
@@ -105,7 +105,7 @@ export function PricingSection() {
               {LITE_FEATURES.map((item) => (
                 <li
                   key={item.text}
-                  className="flex items-center gap-2 text-md text-black [font-family:ui-sans-serif,system-ui,sans-serif] md:text-[13px]"
+                  className="flex items-center gap-2 text-sm text-black [font-family:ui-sans-serif,system-ui,sans-serif] md:text-base"
                 >
                   {item.included ? (
                     <Check

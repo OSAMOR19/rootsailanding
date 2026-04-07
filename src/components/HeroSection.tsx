@@ -26,10 +26,10 @@ export function HeroSection() {
         <p className="mb-4 text-sm font-medium rounded-[20px] bg-[#2DDB161A] py-1 px-4 max-w-fit mx-auto uppercase tracking-widest text-[#2DDB16]">
           AI-POWERED DRUM PLUGIN
         </p>
-        <h1 className="font-display text-2xl font-bold leading-[1.1] tracking-tight text-white md:text-3xl">
+        <h1 className="font-display text-2xl font-bold leading-[1.1] tracking-tight text-white md:text-4xl">
           FIND THE DRUMS <span className="text-[#2DDB16]">INSTANTLY</span>
         </h1>
-        <p className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-[#FFFFFF]/70 md:text-sm">
+        <p className="mx-auto mt-8 max-w-xl text-sm leading-relaxed text-white/70 md:text-base">
           ROOTS is a smart AI-powered drum plugin that understands your track
           and helps you find the right African inspired drum loops from a real,
           handcrafted library, so your drums fit perfectly eveytime

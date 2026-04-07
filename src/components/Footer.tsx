@@ -39,7 +39,7 @@ export function Footer() {
                 ROOTS
               </span>
             </Link>
-            <p className="mt-4 text-md lg:max-w-[70%] leading-relaxed text-white [font-family:ui-sans-serif,system-ui,sans-serif]">
+            <p className="mt-4 text-sm lg:max-w-[70%] leading-relaxed text-white/70 md:text-base [font-family:ui-sans-serif,system-ui,sans-serif]">
               Ready to elevate your Afrobeat production? Start creating authentic
               rhythms today.
             </p>
@@ -59,7 +59,7 @@ export function Footer() {
 
           <div className="flex flex-wrap gap-12 sm:gap-20 md:justify-end">
             <div>
-              <p className="text-md font-semibold text-white [font-family:ui-sans-serif,system-ui,sans-serif]">
+              <p className="text-sm font-semibold text-white md:text-base [font-family:ui-sans-serif,system-ui,sans-serif]">
                 Product
               </p>
               <ul className="mt-4 space-y-3">
@@ -67,7 +67,7 @@ export function Footer() {
                   <li key={l.href + l.label}>
                     <Link
                       href={l.href}
-                      className="text-md text-zinc-400 transition hover:text-white [font-family:ui-sans-serif,system-ui,sans-serif]"
+                      className="text-sm text-zinc-400 transition hover:text-white [font-family:ui-sans-serif,system-ui,sans-serif]"
                     >
                       {l.label}
                     </Link>
@@ -76,7 +76,7 @@ export function Footer() {
               </ul>
             </div>
             <div>
-              <p className="text-md font-semibold text-white [font-family:ui-sans-serif,system-ui,sans-serif]">
+              <p className="text-sm font-semibold text-white md:text-base [font-family:ui-sans-serif,system-ui,sans-serif]">
                 Support
               </p>
               <ul className="mt-4 space-y-3">
@@ -84,7 +84,7 @@ export function Footer() {
                   <li key={l.label}>
                     <Link
                       href={l.href}
-                      className="text-md text-zinc-400 transition hover:text-white [font-family:ui-sans-serif,system-ui,sans-serif]"
+                      className="text-sm text-zinc-400 transition hover:text-white [font-family:ui-sans-serif,system-ui,sans-serif]"
                     >
                       {l.label}
                     </Link>
@@ -100,7 +100,7 @@ export function Footer() {
           className="md:mt-10 mt-2 border-t border-white/5 md:pt-16 md:pt-10"
         >
           <h2
-            className="text-center font-inter tracking-[5px] text-3xl md:text-5xl text-[#252525] md:text-7xl lg:text-8xl bg-gradient-to-r from-black via-white to-black bg-clip-text text-transparent"
+            className="text-center font-inter tracking-[5px] text-2xl md:text-4xl lg:text-8xl bg-gradient-to-r from-black via-white to-black bg-clip-text text-transparent"
           >
             <span
               style={{
