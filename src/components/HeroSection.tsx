@@ -36,7 +36,7 @@ export function HeroSection() {
         </p>
         <div className="my-8 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
           <Link
-            href="#"
+            href="https://rootsai.space/"
             className="inline-flex h-12 items-center justify-center rounded-[15px] bg-[#249415] px-8 text-sm font-semibold text-white transition hover:bg-[#249415]/80"
           >
             GET ROOTED

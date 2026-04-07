@@ -255,13 +255,6 @@ function DrumCard({ loop, index }: { loop: DrumLoop; index: number }) {
           <span className="text-[10px] text-white/30 [font-family:ui-sans-serif,system-ui,sans-serif]">
             Loop #{String(index + 1).padStart(2, "0")}
           </span>
-          <button
-            aria-label="Download"
-            className="flex items-center gap-1 rounded-full bg-white/5 hover:bg-[#42FF00]/10 px-2.5 py-1 text-[10px] text-white/40 hover:text-[#42FF00] transition-colors [font-family:ui-sans-serif,system-ui,sans-serif]"
-          >
-            <Download className="size-3" />
-            <span>Download</span>
-          </button>
         </div>
       </div>
 

@@ -51,7 +51,7 @@ export function PricingSection() {
 
             <div className="mt-5">
               <p className="font-display text-3xl font-bold text-white md:text-4xl">
-                $5.99{" "}
+                $5.00{" "}
                 <span className="text-base font-bold uppercase md:text-lg">
                   P/Month
                 </span>
