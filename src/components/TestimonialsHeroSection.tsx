@@ -12,10 +12,11 @@ const MARCUS_PORTRAITS = [
 
 const PAUL_PORTRAITS = [
   "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=128&h=128&fit=crop&crop=face&auto=format",
-  "https://images.unsplash.com/photo-1504257432389-52343af06eab?w=128&h=128&fit=crop&crop=face&auto=format",
-  "https://images.unsplash.com/photo-1531384441138-2736e62e0915?w=128&h=128&fit=crop&crop=face&auto=format",
   "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=128&h=128&fit=crop&crop=face&auto=format",
   "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=128&h=128&fit=crop&crop=face&auto=format",
+  "/mostafa.jpg",
+  "/vince.jpg",
+
 ] as const;
 
 export function TestimonialsHeroSection() {

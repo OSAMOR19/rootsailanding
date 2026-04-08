@@ -54,20 +54,6 @@ const DRUM_LOOPS: DrumLoop[] = [
     scUrl:
       "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/isaac-osamor/manifxt-magici-drum-loop-108bpm&color=%2342FF00&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false",
   },
-  {
-    title: "Manifxt – Gadus II",
-    bpm: "95 BPM",
-    genre: "Amapiano",
-    scUrl:
-      "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/isaac-osamor/manifxt-gadus-ii-drum-loop-95bpm&color=%2342FF00&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false",
-  },
-  {
-    title: "Manifxt – Lemon",
-    bpm: "112 BPM",
-    genre: "Highlife",
-    scUrl:
-      "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/isaac-osamor/manifxt-lemon-drum-loop-112bpm&color=%2342FF00&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false",
-  },
 ];
 
 const BAR_HEIGHTS = [
@@ -287,8 +273,8 @@ const Authentic = () => {
         </p>
       </div>
 
-      <div className="mx-auto max-w-[1200px] px-6">
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:grid-cols-4 md:gap-4">
+      <div className="mx-auto max-w-[1000px] px-6">
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 md:gap-4">
           {DRUM_LOOPS.map((loop, i) => (
             <DrumCard key={i} loop={loop} index={i} />
           ))}
