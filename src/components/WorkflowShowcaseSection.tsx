@@ -1,26 +1,23 @@
-import fs from "node:fs";
-import path from "node:path";
-import Image from "next/image";
+"use client";
 
-const PNG_NAME = "roots-workflow-showcase.png";
-const PLACEHOLDER = "/workflow-ui-placeholder.svg";
-
-function resolveShowcaseImageSrc():
-  | "/roots-workflow-showcase.png"
-  | "/workflow-ui-placeholder.svg" {
-  const pngPath = path.join(process.cwd(), "public", PNG_NAME);
-  if (fs.existsSync(pngPath)) {
-    return "/roots-workflow-showcase.png";
-  }
-  return PLACEHOLDER;
-}
+import { useEffect, useState } from "react";
+import { useInView } from "./useInView";
 
 export function WorkflowShowcaseSection() {
+  const [mounted, setMounted] = useState(false);
+  const [headerRef, headerVisible] = useInView();
+  const [videoRef, videoVisible] = useInView({ threshold: 0.08 });
+  useEffect(() => { setMounted(true); }, []);
 
   return (
-    <section id="library" className="bg-black md:py-24 py-16">
+    <section id="library" className="bg-black md:py-24 py-16 overflow-hidden">
       <div className="mx-auto flex max-w-[1200px] flex-col items-center px-6">
-        <div className="flex w-full flex-col items-center text-center">
+
+        {/* Heading */}
+        <div
+          ref={headerRef}
+          className={`flex w-full flex-col items-center text-center${mounted ? ` anim-hidden${headerVisible ? " anim-visible fade-up" : ""}` : ""}`}
+        >
           <h2 className="font-display text-2xl font-bold uppercase leading-[1.5] tracking-[0.03em] text-white md:text-4xl">
             The smartest way to build afrobeats &amp; modern
             <br />
@@ -32,8 +29,19 @@ export function WorkflowShowcaseSection() {
           </p>
         </div>
 
-        <div className="w-[80%] lg:h-[500px]">
-           <video src="/workflow.mp4"  controls loop muted className="h-auto w-full rounded-[20px] aspect-[800/640]" />
+        {/* Video */}
+        <div
+          ref={videoRef}
+          className={`w-[80%] lg:h-[500px] mt-10${mounted ? ` anim-hidden${videoVisible ? " anim-visible scale-in" : ""}` : ""}`}
+          style={{ "--delay": "100ms" } as React.CSSProperties}
+        >
+          <video
+            src="/workflow.mp4"
+            controls
+            loop
+            muted
+            className="h-auto w-full rounded-[20px] aspect-[800/640] shadow-[0_16px_60px_rgba(66,255,0,0.07)]"
+          />
         </div>
       </div>
     </section>

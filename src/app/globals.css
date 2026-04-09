@@ -23,3 +23,80 @@ body {
 .font-display {
   font-family: var(--font-bebas-neue), system-ui, sans-serif;
 }
+
+/* ─────────────────────────────────────────────────────────────────
+   ANIMATION KEYFRAMES
+   ───────────────────────────────────────────────────────────────── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.04; transform: scale(1); }
+  50%       { opacity: 0.09; transform: scale(1.08); }
+}
+
+@keyframes marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes barBounce {
+  from { transform: scaleY(0.55); }
+  to   { transform: scaleY(1.18); }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   ANIMATION UTILITY CLASSES
+   ───────────────────────────────────────────────────────────────── */
+
+/* Base "before reveal" state — items start invisible */
+.anim-hidden {
+  opacity: 0;
+  will-change: opacity, transform;
+}
+
+/* Triggered by JS (IntersectionObserver adds .anim-visible) */
+.anim-visible.fade-up    { animation: fadeUp    0.65s cubic-bezier(0.22,1,0.36,1) both; }
+.anim-visible.fade-in    { animation: fadeIn    0.6s  ease both; }
+.anim-visible.slide-left { animation: slideInLeft  0.65s cubic-bezier(0.22,1,0.36,1) both; }
+.anim-visible.slide-right{ animation: slideInRight 0.65s cubic-bezier(0.22,1,0.36,1) both; }
+.anim-visible.scale-in   { animation: scaleIn   0.7s  cubic-bezier(0.22,1,0.36,1) both; }
+
+/* Stagger helpers (set via inline style --delay) */
+.anim-visible { animation-delay: var(--delay, 0ms); }
+
+/* Marquee */
+.marquee-track {
+  display: flex;
+  min-width: fit-content;
+  animation: marquee 22s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* Pulsing ambient glow */
+.glow-pulse {
+  animation: pulseGlow 6s ease-in-out infinite;
+}

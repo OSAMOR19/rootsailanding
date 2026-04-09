@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Minus, Plus } from "lucide-react";
 
 const FAQ_ITEMS: { q: string; a: string }[] = [
@@ -38,7 +38,7 @@ const FAQ_ITEMS: { q: string; a: string }[] = [
   },
   {
     q: "How often is the drum library updated?",
-    a: "New drops ship on a regular cadence—Pro members get new packs and loops as they’re added, with highlights called out in-app and via release notes.",
+    a: "New drops ship on a regular cadence—Pro members get new packs and loops as they're added, with highlights called out in-app and via release notes.",
   },
   {
     q: "Does ROOTS work on Mac and Windows?",
@@ -50,39 +50,72 @@ const FAQ_ITEMS: { q: string; a: string }[] = [
   },
 ];
 
+function AccordionItem({
+  q,
+  a,
+  open,
+  onToggle,
+}: {
+  q: string;
+  a: string;
+  open: boolean;
+  onToggle: () => void;
+}) {
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  return (
+    <div className="border-b border-zinc-600 last:border-0">
+      <button
+        type="button"
+        onClick={onToggle}
+        className="flex w-full items-start justify-between gap-4 py-5 text-left group"
+      >
+        <span className="text-[15px] font-medium leading-snug text-white group-hover:text-[#42FF00] transition-colors duration-200 [font-family:ui-sans-serif,system-ui,sans-serif] md:text-lg">
+          {q}
+        </span>
+        <span
+          className="mt-0.5 shrink-0 transition-transform duration-300"
+          style={{ transform: open ? "rotate(0deg)" : "rotate(0deg)" }}
+        >
+          {open ? (
+            <Minus className="size-5 text-[#42FF00]" strokeWidth={2} aria-hidden />
+          ) : (
+            <Plus className="size-5 text-white group-hover:text-[#42FF00] transition-colors duration-200" strokeWidth={2} aria-hidden />
+          )}
+        </span>
+      </button>
+
+      {/* Smooth height animation */}
+      <div
+        ref={contentRef}
+        style={{
+          maxHeight: open ? `${contentRef.current?.scrollHeight ?? 400}px` : "0px",
+          overflow: "hidden",
+          transition: "max-height 0.35s cubic-bezier(0.22,1,0.36,1)",
+        }}
+      >
+        <p className="pb-5 text-sm leading-relaxed text-zinc-400 [font-family:ui-sans-serif,system-ui,sans-serif] md:text-[15px]">
+          {a}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 export function FAQAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <div className="divide-y divide-zinc-600">
-      {FAQ_ITEMS.map((item, i) => {
-        const isOpen = openIndex === i;
-        return (
-          <div key={item.q}>
-            <button
-              type="button"
-              onClick={() => setOpenIndex(isOpen ? null : i)}
-              className="flex w-full items-start justify-between gap-4 py-5 text-left transition hover:text-white/90"
-            >
-              <span className="text-[15px] font-medium leading-snug text-white [font-family:ui-sans-serif,system-ui,sans-serif] md:text-lg">
-                {item.q}
-              </span>
-              <span className="mt-0.5 shrink-0 text-white">
-                {isOpen ? (
-                  <Minus className="size-5" strokeWidth={2} aria-hidden />
-                ) : (
-                  <Plus className="size-5" strokeWidth={2} aria-hidden />
-                )}
-              </span>
-            </button>
-            {isOpen ? (
-              <div className="pb-5 text-sm leading-relaxed text-zinc-400 [font-family:ui-sans-serif,system-ui,sans-serif] md:text-[15px]">
-                {item.a}
-              </div>
-            ) : null}
-          </div>
-        );
-      })}
+    <div>
+      {FAQ_ITEMS.map((item, i) => (
+        <AccordionItem
+          key={item.q}
+          q={item.q}
+          a={item.a}
+          open={openIndex === i}
+          onToggle={() => setOpenIndex(openIndex === i ? null : i)}
+        />
+      ))}
     </div>
   );
 }

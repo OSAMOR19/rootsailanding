@@ -1,46 +1,28 @@
-import fs from "node:fs";
-import path from "node:path";
-import type { LucideIcon } from "lucide-react";
+// Server component — no "use client" needed
+// Icons are rendered here as JSX (ReactNode), not passed as function references
 import { Cloud, Drum, Headphones, Library } from "lucide-react";
 import { FeatureRow } from "./FeatureRow";
 
-const PLACEHOLDER = "/workflow-ui-placeholder.svg";
+const ICON_CLASS = "size-7 shrink-0 text-white md:size-8";
 
-function resolveRowImage(rowIndex: number): string {
-  const name = `roots-special-row-${rowIndex}.png`;
-  const pngPath = path.join(process.cwd(), "public", name);
-  if (fs.existsSync(pngPath)) {
-    return `/${name}`;
-  }
-  return PLACEHOLDER;
-}
-
-type FeatureItem = {
-  badge: string;
-  icon: LucideIcon;
-  title: string;
-  description: string;
-  secondaryText?: string;
-};
-
-const FEATURES: FeatureItem[] = [
+const FEATURES = [
   {
     badge: "Intelligent analysis",
-    icon: Headphones,
+    icon: <Headphones className={ICON_CLASS} strokeWidth={2} aria-hidden />,
     title: "It Listens to Your Music",
     description:
       "ROOTS can analyze what's playing in your DAW or any audio you upload, tempo, groove, and feel. It understands context before suggesting drums, so everything fits naturally.",
   },
   {
     badge: "Next gen AI",
-    icon: Cloud,
+    icon: <Cloud className={ICON_CLASS} strokeWidth={2} aria-hidden />,
     title: "Create With Prompts",
     description:
       "Tell ROOTS what you want. From 'mid-tempo abstract groove' to 'dark weapons house' ROOTS your prompt to guide intelligent drum recommendations without forcing creative decisions.",
   },
   {
     badge: "Realistic sounds",
-    icon: Drum,
+    icon: <Drum className={ICON_CLASS} strokeWidth={2} aria-hidden />,
     title: "Built on Real Drums",
     description:
       "Every drum kit in ROOTS is human-made, professionally produced, and naturally authentic.",
@@ -48,7 +30,7 @@ const FEATURES: FeatureItem[] = [
   },
   {
     badge: "Curated library",
-    icon: Library,
+    icon: <Library className={ICON_CLASS} strokeWidth={2} aria-hidden />,
     title: "A Deep, Curated Drum Library",
     description:
       "Browse with a library of authentic human-made drum packs, curated for tempo, groove, and genre so the right sound is always within reach.",
@@ -68,12 +50,13 @@ export function WhatMakesRootsSpecialSection() {
           {FEATURES.map((item, i) => (
             <FeatureRow
               key={item.badge}
+              index={i}
               badge={item.badge}
               icon={item.icon}
               title={item.title}
               description={item.description}
               secondaryText={item.secondaryText}
-              imageSrc={resolveRowImage(i + 1)}
+              imageSrc="/image1.webp"
             />
           ))}
         </div>

@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { Check, X } from "lucide-react";
+import { useEffect, useState } from "react";
 import { PricingBillingToggle } from "./PricingBillingToggle";
+import { useInView } from "./useInView";
 
 const PRO_FEATURES = [
   "Unlimited AI generations",
@@ -20,10 +24,18 @@ const LITE_FEATURES: { text: string; included: boolean }[] = [
 ];
 
 export function PricingSection() {
+  const [mounted, setMounted] = useState(false);
+  const [headerRef, headerVisible] = useInView();
+  const [cardsRef, cardsVisible] = useInView({ threshold: 0.08 });
+  useEffect(() => { setMounted(true); }, []);
+
   return (
     <section id="pricing" className="bg-black py-20 md:py-28">
       <div className="mx-auto max-w-[1200px] px-6">
-        <header className="text-center">
+        <header
+          ref={headerRef}
+          className={`text-center${mounted ? ` anim-hidden${headerVisible ? " anim-visible fade-up" : ""}` : ""}`}
+        >
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#42FF00] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-sm">
             Our plans
           </p>
@@ -32,9 +44,15 @@ export function PricingSection() {
           </h2>
         </header>
 
-        <div className="mx-auto mt-10 grid max-w-xl gap-4 md:mt-14 md:grid-cols-2 md:items-stretch md:gap-5 lg:max-w-4xl">
+        <div
+          ref={cardsRef}
+          className="mx-auto mt-10 grid max-w-xl gap-4 md:mt-14 md:grid-cols-2 md:items-stretch md:gap-5 lg:max-w-4xl"
+        >
           {/* ROOTS PRO */}
-          <div className="relative flex h-full flex-col rounded-2xl bg-[#165E0C] p-5 ring-1 ring-white/10 md:p-6">
+          <div
+            className={`relative flex h-full flex-col rounded-2xl bg-[#165E0C] p-5 ring-1 ring-white/10 md:p-6${mounted ? ` anim-hidden${cardsVisible ? " anim-visible slide-left" : ""}` : ""}`}
+            style={{ "--delay": "0ms" } as React.CSSProperties}
+          >
             <div className="mb-4 flex items-start justify-between gap-3">
               <PricingBillingToggle />
               <span className="rounded-full bg-amber-500 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-black [font-family:ui-sans-serif,system-ui,sans-serif]">
@@ -67,11 +85,7 @@ export function PricingSection() {
                   key={line}
                   className="flex items-center gap-2 text-sm text-white [font-family:ui-sans-serif,system-ui,sans-serif] md:text-base"
                 >
-                  <Check
-                    className="size-3.5 shrink-0 text-white"
-                    strokeWidth={2.5}
-                    aria-hidden
-                  />
+                  <Check className="size-3.5 shrink-0 text-white" strokeWidth={2.5} aria-hidden />
                   {line}
                 </li>
               ))}
@@ -79,15 +93,17 @@ export function PricingSection() {
 
             <Link
               href="#download"
-              className="mt-6 inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full bg-[#2DDB16] text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-[#26c414] [font-family:ui-sans-serif,system-ui,sans-serif] md:h-12 md:text-sm"
+              className="mt-6 inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full bg-[#2DDB16] text-xs font-semibold uppercase tracking-wide text-white transition-all duration-200 hover:bg-[#26c414] hover:shadow-[0_0_22px_rgba(45,219,22,0.4)] hover:scale-[1.02] [font-family:ui-sans-serif,system-ui,sans-serif] md:h-12 md:text-sm"
             >
               Start pro trial
             </Link>
           </div>
 
           {/* ROOTS LITE */}
-          <div className="flex h-full flex-col rounded-2xl bg-white p-5 ring-1 ring-white/10 md:p-6">
-            {/* <div className="mb-4 flex items-start justify-between gap-3"></div> */}
+          <div
+            className={`flex h-full flex-col rounded-2xl bg-white p-5 ring-1 ring-white/10 md:p-6${mounted ? ` anim-hidden${cardsVisible ? " anim-visible slide-right" : ""}` : ""}`}
+            style={{ "--delay": "120ms" } as React.CSSProperties}
+          >
             <h3 className="font-display text-xl font-bold uppercase tracking-wide text-black md:text-2xl">
               ROOTS LITE
             </h3>
@@ -108,17 +124,9 @@ export function PricingSection() {
                   className="flex items-center gap-2 text-sm text-black [font-family:ui-sans-serif,system-ui,sans-serif] md:text-base"
                 >
                   {item.included ? (
-                    <Check
-                      className="size-3.5 shrink-0 text-[#249415]"
-                      strokeWidth={2.5}
-                      aria-hidden
-                    />
+                    <Check className="size-3.5 shrink-0 text-[#249415]" strokeWidth={2.5} aria-hidden />
                   ) : (
-                    <X
-                      className="size-3.5 shrink-0 text-red-500"
-                      strokeWidth={2.5}
-                      aria-hidden
-                    />
+                    <X className="size-3.5 shrink-0 text-red-500" strokeWidth={2.5} aria-hidden />
                   )}
                   {item.text}
                 </li>
@@ -127,7 +135,7 @@ export function PricingSection() {
 
             <Link
               href="#"
-              className="mt-6 inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full bg-[#2DDB16] text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-[#26c414] [font-family:ui-sans-serif,system-ui,sans-serif] md:h-12 md:text-sm md:mt-auto"
+              className="mt-6 inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full bg-[#2DDB16] text-xs font-semibold uppercase tracking-wide text-white transition-all duration-200 hover:bg-[#26c414] hover:shadow-[0_0_22px_rgba(45,219,22,0.4)] hover:scale-[1.02] [font-family:ui-sans-serif,system-ui,sans-serif] md:h-12 md:text-sm md:mt-auto"
             >
               Get started for free
             </Link>

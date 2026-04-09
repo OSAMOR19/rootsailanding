@@ -1,20 +1,25 @@
+"use client";
+
 import Image from "next/image";
-import type { LucideIcon } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useInView } from "./useInView";
 
 export type FeatureRowProps = {
   badge: string;
-  icon: LucideIcon;
+  /** Pass rendered JSX — e.g. <Headphones className="size-7 …" /> */
+  icon: React.ReactNode;
   title: string;
   description: string;
   secondaryText?: string;
   imageSrc: string;
+  /** Even index → text left, image right. Odd → image left, text right */
+  index?: number;
 };
 
 function FeatureRowImage({ src }: { src: string }) {
-  const isSvg = src.endsWith(".svg");
-
-  if (isSvg) {
+  if (src.endsWith(".svg")) {
     return (
+      // eslint-disable-next-line @next/next/no-img-element
       <img
         src={src}
         alt=""
@@ -30,9 +35,7 @@ function FeatureRowImage({ src }: { src: string }) {
       <Image
         src={src}
         alt=""
-        // fill
         className="object-contain object-top"
-        // sizes="(width: 1500px) 100vw, 600px"
         width={1700}
         height={740}
       />
@@ -42,24 +45,38 @@ function FeatureRowImage({ src }: { src: string }) {
 
 export function FeatureRow({
   badge,
-  icon: Icon,
+  icon,
   title,
   description,
   secondaryText,
   imageSrc,
+  index = 0,
 }: FeatureRowProps) {
+  const [mounted, setMounted] = useState(false);
+  const [ref, visible] = useInView({ threshold: 0.08 });
+  useEffect(() => { setMounted(true); }, []);
+
+  const isOdd = index % 2 !== 0;
+  const textOrder = isOdd ? "md:order-2" : "md:order-1";
+  const imgOrder  = isOdd ? "md:order-1" : "md:order-2";
+  const textAnim  = isOdd ? "slide-right" : "slide-left";
+  const imgAnim   = isOdd ? "slide-left"  : "slide-right";
+
   return (
-    <div className="grid items-center gap-10 md:grid-cols-2 md:gap-14 lg:gap-20">
-      <div className="flex flex-col gap-4 md:max-w-xl">
+    <div
+      ref={ref}
+      className="grid items-center gap-10 md:grid-cols-2 md:gap-14 lg:gap-20"
+    >
+      {/* Text column */}
+      <div
+        className={`${textOrder} flex flex-col gap-4 md:max-w-xl${mounted ? ` anim-hidden${visible ? ` anim-visible ${textAnim}` : ""}` : ""}`}
+        style={{ "--delay": "0ms" } as React.CSSProperties}
+      >
         <span className="inline-flex w-fit rounded-full bg-[#2DDB161A] font-light px-3 py-1.5 text-[11px] uppercase tracking-wider text-[#2DDB16] [font-family:ui-sans-serif,system-ui,sans-serif] md:text-xs">
           {badge}
         </span>
         <h3 className="flex items-center gap-3 font-display text-xl font-bold uppercase leading-tight tracking-wide text-white md:gap-4 md:text-2xl">
-          <Icon
-            className="size-7 shrink-0 text-white md:size-8"
-            strokeWidth={2}
-            aria-hidden
-          />
+          {icon}
           {title}
         </h3>
         <p className="text-sm leading-relaxed text-white/70 md:text-base [font-family:ui-sans-serif,system-ui,sans-serif]">
@@ -71,8 +88,13 @@ export function FeatureRow({
           </p>
         ) : null}
       </div>
-      <div className="min-w-0">
-        <FeatureRowImage src={"/image1.webp"} />
+
+      {/* Image column */}
+      <div
+        className={`${imgOrder} min-w-0${mounted ? ` anim-hidden${visible ? ` anim-visible ${imgAnim}` : ""}` : ""}`}
+        style={{ "--delay": "120ms" } as React.CSSProperties}
+      >
+        <FeatureRowImage src={imageSrc} />
       </div>
     </div>
   );
