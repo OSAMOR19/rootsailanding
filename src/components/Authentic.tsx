@@ -1,61 +1,62 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import Script from "next/script";
-import { Download, Music2 } from "lucide-react";
+import { Music2 } from "lucide-react";
 
 type DrumLoop = {
   title: string;
   bpm: string;
   genre: string;
-  scUrl: string;
+  file: string;
 };
+
+/* ------------------------------------------------------------------ */
+/*  6 tracks chosen for genre + BPM diversity                          */
+/* ------------------------------------------------------------------ */
+const AUDIO_DIR = "/ROOTS Landing Page - Audio Previews/";
 
 const DRUM_LOOPS: DrumLoop[] = [
   {
     title: "Manifxt – Allure",
     bpm: "97 BPM",
     genre: "Afrobeats",
-    scUrl:
-      "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/isaac-osamor/manifxt-allure-drum-loop-97bpm-1&color=%2342FF00&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false",
+    file: `${AUDIO_DIR}Manifxt - Allure Drum Loop 97BPM - Afrobeats.wav`,
   },
   {
-    title: "Manifxt – Manor",
-    bpm: "103 BPM",
-    genre: "Afropop",
-    scUrl:
-      "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/isaac-osamor/manifxt-manor-drum-loop-103bpm&color=%2342FF00&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false",
-  },
-  {
-    title: "Manifxt – Construct",
-    bpm: "110 BPM",
-    genre: "Highlife",
-    scUrl:
-      "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/isaac-osamor/manifxt-construct-drum-loop-110bpm&color=%2342FF00&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false",
-  },
-  {
-    title: "Manifxt – Gadus",
-    bpm: "95 BPM",
-    genre: "Amapiano",
-    scUrl:
-      "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/isaac-osamor/manifxt-gadus-drum-loop-95bpm&color=%2342FF00&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false",
-  },
-  {
-    title: "Manifxt – Hemis",
-    bpm: "100 BPM",
+    title: "Manifxt – Expenses",
+    bpm: "98 BPM",
     genre: "Afrobeats",
-    scUrl:
-      "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/isaac-osamor/manifxt-hemis-drum-loop-100bpm&color=%2342FF00&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false",
+    file: `${AUDIO_DIR}Manifxt - Expenses Drum Loop 98BPM - Afrobeats.wav`,
   },
   {
-    title: "Manifxt – Magici",
-    bpm: "108 BPM",
-    genre: "Afropop",
-    scUrl:
-      "https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/isaac-osamor/manifxt-magici-drum-loop-108bpm&color=%2342FF00&auto_play=false&hide_related=true&show_comments=false&show_user=false&show_reposts=false&show_teaser=false",
+    title: "Manifxt – Lemon",
+    bpm: "105 BPM",
+    genre: "Afrobeats",
+    file: `${AUDIO_DIR}Manifxt - Lemon Drum Loop 105BPM - Afrobeats.wav`,
+  },
+  {
+    title: "Manifxt – Lasgidi",
+    bpm: "112 BPM",
+    genre: "Amapiano",
+    file: `${AUDIO_DIR}Manifxt - Lasgidi Drum Loop 112BPM - Amapiano.wav`,
+  },
+  {
+    title: "Manifxt – Magician",
+    bpm: "118 BPM",
+    genre: "Amapiano",
+    file: `${AUDIO_DIR}Manifxt - Magician Drum Loop 118BPM - Amapiano.wav`,
+  },
+  {
+    title: "Manifxt – Kinetic",
+    bpm: "120 BPM",
+    genre: "Afrohouse",
+    file: `${AUDIO_DIR}Manifxt - Kinetic Drum Loop 120BPM - Afrohouse.wav`,
   },
 ];
 
+/* ------------------------------------------------------------------ */
+/*  Waveform bars – animated when playing                              */
+/* ------------------------------------------------------------------ */
 const BAR_HEIGHTS = [
   18, 32, 24, 40, 28, 50, 36, 44, 20, 38, 30, 48, 22, 42, 26, 52, 34, 46, 28,
   38, 20, 44, 32, 50, 24, 36, 18, 42, 30, 48, 22, 40, 26, 34, 18, 44, 28, 52,
@@ -73,13 +74,26 @@ function WaveformBars({ playing }: { playing: boolean }) {
             height: `${h}%`,
             backgroundColor: playing ? "#42FF00" : "rgba(255,255,255,0.25)",
             opacity: playing ? 0.85 + (i % 3) * 0.05 : 1,
+            animation: playing
+              ? `barBounce ${0.4 + (i % 5) * 0.08}s ease-in-out infinite alternate`
+              : "none",
           }}
         />
       ))}
+
+      <style>{`
+        @keyframes barBounce {
+          from { transform: scaleY(0.6); }
+          to   { transform: scaleY(1.15); }
+        }
+      `}</style>
     </div>
   );
 }
 
+/* ------------------------------------------------------------------ */
+/*  Spinning vinyl disc                                                 */
+/* ------------------------------------------------------------------ */
 function VinylDisc({ playing }: { playing: boolean }) {
   return (
     <div
@@ -93,7 +107,6 @@ function VinylDisc({ playing }: { playing: boolean }) {
         animation: playing ? "spin 4s linear infinite" : "none",
       }}
     >
-      {/* Vinyl grooves */}
       {[36, 52, 68, 84, 100].map((r) => (
         <div
           key={r}
@@ -101,68 +114,76 @@ function VinylDisc({ playing }: { playing: boolean }) {
           style={{ width: r, height: r }}
         />
       ))}
-      {/* Center label */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="rounded-full bg-[#1a1a1a] border-2 border-[#333]" style={{ width: 28, height: 28 }} />
+        <div
+          className="rounded-full bg-[#1a1a1a] border-2 border-[#333]"
+          style={{ width: 28, height: 28 }}
+        />
       </div>
-      <style jsx>{`
+      <style>{`
         @keyframes spin {
           from { transform: rotate(0deg); }
-          to { transform: rotate(360deg); }
+          to   { transform: rotate(360deg); }
         }
       `}</style>
     </div>
   );
 }
 
+/* ------------------------------------------------------------------ */
+/*  Individual drum card                                               */
+/* ------------------------------------------------------------------ */
+
+// Global ref so only one track plays at a time
+const currentlyPlaying: { ref: HTMLAudioElement | null } = { ref: null };
+
 function DrumCard({ loop, index }: { loop: DrumLoop; index: number }) {
   const [playing, setPlaying] = useState(false);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  const widgetRef = useRef<unknown>(null);
-  const [widgetReady, setWidgetReady] = useState(false);
+  const [progress, setProgress] = useState(0);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
-    let attempts = 0;
-    const maxAttempts = 30;
+    const audio = new Audio(loop.file);
+    audio.loop = true;
+    audioRef.current = audio;
 
-    function tryBindWidget() {
-      const iframe = iframeRef.current;
-      if (!iframe) return;
-
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const SC = (window as any).SC;
-      if (!SC?.Widget) {
-        if (attempts < maxAttempts) {
-          attempts++;
-          setTimeout(tryBindWidget, 500);
-        }
-        return;
+    const onPlay = () => setPlaying(true);
+    const onPause = () => setPlaying(false);
+    const onEnded = () => setPlaying(false);
+    const onTimeUpdate = () => {
+      if (audio.duration) {
+        setProgress((audio.currentTime / audio.duration) * 100);
       }
+    };
 
-      const widget = SC.Widget(iframe);
-      widgetRef.current = widget;
+    audio.addEventListener("play", onPlay);
+    audio.addEventListener("pause", onPause);
+    audio.addEventListener("ended", onEnded);
+    audio.addEventListener("timeupdate", onTimeUpdate);
 
-      widget.bind(SC.Widget.Events.READY, () => {
-        setWidgetReady(true);
-      });
-
-      widget.bind(SC.Widget.Events.PLAY, () => setPlaying(true));
-      widget.bind(SC.Widget.Events.PAUSE, () => setPlaying(false));
-      widget.bind(SC.Widget.Events.FINISH, () => setPlaying(false));
-    }
-
-    tryBindWidget();
+    return () => {
+      audio.pause();
+      audio.removeEventListener("play", onPlay);
+      audio.removeEventListener("pause", onPause);
+      audio.removeEventListener("ended", onEnded);
+      audio.removeEventListener("timeupdate", onTimeUpdate);
+    };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function handlePlayPause() {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const widget = widgetRef.current as any;
-    if (!widget) return;
+    const audio = audioRef.current;
+    if (!audio) return;
 
     if (playing) {
-      widget.pause();
+      audio.pause();
     } else {
-      widget.play();
+      // Stop any other track that is playing
+      if (currentlyPlaying.ref && currentlyPlaying.ref !== audio) {
+        currentlyPlaying.ref.pause();
+      }
+      currentlyPlaying.ref = audio;
+      audio.play().catch(() => {/* autoplay policy – user gesture required */});
     }
   }
 
@@ -176,23 +197,19 @@ function DrumCard({ loop, index }: { loop: DrumLoop; index: number }) {
             {loop.title}
           </span>
         </div>
-        {/* SoundCloud logo mark */}
-        <svg className="size-4 shrink-0 opacity-50" viewBox="0 0 24 24" fill="#ff5500">
-          <path d="M1.175 12.225c-.085 0-.14.06-.149.143l-.201 1.557.201 1.544c.008.084.064.143.15.143.083 0 .14-.06.149-.143l.228-1.544-.228-1.557c-.01-.083-.066-.143-.15-.143zm-.899.571c-.099 0-.175.076-.175.175l-.101 1.386.101 1.373c0 .099.076.175.175.175.1 0 .175-.076.175-.175l.115-1.373-.115-1.386c0-.099-.076-.175-.175-.175zm1.798-.088c-.107 0-.187.08-.196.185l-.182 1.474.182 1.462c.01.104.09.185.196.185.107 0 .187-.081.196-.185l.208-1.462-.208-1.474c-.01-.105-.09-.185-.196-.185zm.9-.28c-.12 0-.213.094-.222.212l-.163 1.754.163 1.741c.01.118.103.212.222.212.12 0 .212-.094.222-.212l.186-1.741-.186-1.754c-.01-.118-.103-.212-.222-.212zm.898.1c-.131 0-.238.106-.247.237l-.145 1.654.145 1.64c.01.132.116.238.247.238.132 0 .238-.106.247-.237l.165-1.641-.165-1.654c-.01-.131-.115-.237-.247-.237zm.9-.02c-.145 0-.263.118-.271.262l-.127 1.674.127 1.659c.009.145.126.263.271.263.145 0 .263-.118.271-.263l.144-1.659-.144-1.674c-.009-.144-.126-.262-.271-.262zm.899.217c-.156 0-.284.128-.292.284l-.109 1.457.109 1.442c.008.156.136.284.292.284.157 0 .285-.128.293-.284l.125-1.442-.125-1.457c-.009-.156-.136-.284-.293-.284zm3.598-2.124c-.08-.034-.165-.052-.254-.052-.185 0-.356.072-.484.2a.684.684 0 0 0-.2.485v4.625c0 .19.154.344.344.344h3.254a.935.935 0 0 0 .935-.934v-1.41a2.808 2.808 0 0 0-2.808-2.808 2.8 2.8 0 0 0-.787.113zm1.3-1.124c-.35 0-.636.286-.636.636v6.05c0 .35.285.636.635.636h.001c.35 0 .635-.285.635-.636V9.48a2.136 2.136 0 0 0-2.135-2.135 2.136 2.136 0 0 0-1.813 1.014 3.71 3.71 0 0 0-.323-.713 3.757 3.757 0 0 0-3.265-1.9 3.759 3.759 0 0 0-3.758 3.758v.003l.16 3.625-.16 1.516c-.01.158.118.286.276.286h7.982c.158 0 .285-.128.285-.286V9.482a2.138 2.138 0 0 0-2.136-2.136 2.137 2.137 0 0 0-2.127 1.98 3.705 3.705 0 0 0-.148-.956z" />
-        </svg>
+        {/* Genre + BPM */}
+        <div className="flex items-center gap-1.5 shrink-0">
+          <span className="rounded-full bg-[#42FF00]/10 px-2 py-0.5 text-[9px] font-semibold uppercase tracking-wider text-[#42FF00] [font-family:ui-sans-serif,system-ui,sans-serif]">
+            {loop.genre}
+          </span>
+          <span className="rounded-full bg-white/5 px-2 py-0.5 text-[9px] font-medium uppercase tracking-wider text-white/50 [font-family:ui-sans-serif,system-ui,sans-serif]">
+            {loop.bpm}
+          </span>
+        </div>
       </div>
 
       {/* Main card body */}
       <div className="flex flex-col items-center gap-4 px-4 pt-5 pb-4">
-        {/* Genre + BPM tags */}
-        <div className="flex items-center gap-2 self-start">
-          <span className="rounded-full bg-[#42FF00]/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-[#42FF00] [font-family:ui-sans-serif,system-ui,sans-serif]">
-            {loop.genre}
-          </span>
-          <span className="rounded-full bg-white/5 px-2 py-0.5 text-[10px] font-medium uppercase tracking-wider text-white/50 [font-family:ui-sans-serif,system-ui,sans-serif]">
-            {loop.bpm}
-          </span>
-        </div>
 
         {/* Vinyl + Play button */}
         <div className="relative flex items-center justify-center" style={{ width: 120, height: 120 }}>
@@ -200,7 +217,6 @@ function DrumCard({ loop, index }: { loop: DrumLoop; index: number }) {
           {/* Play/Pause overlay */}
           <button
             onClick={handlePlayPause}
-            disabled={!widgetReady}
             aria-label={playing ? "Pause" : "Play"}
             className="absolute inset-0 flex items-center justify-center rounded-full z-10 group/btn"
           >
@@ -236,32 +252,34 @@ function DrumCard({ loop, index }: { loop: DrumLoop; index: number }) {
           <WaveformBars playing={playing} />
         </div>
 
+        {/* Progress bar */}
+        <div className="w-full h-[2px] rounded-full bg-white/10 overflow-hidden">
+          <div
+            className="h-full rounded-full bg-[#42FF00] transition-all duration-300"
+            style={{ width: `${progress}%` }}
+          />
+        </div>
+
         {/* Bottom row */}
         <div className="flex items-center justify-between w-full pt-1 border-t border-white/[0.06]">
           <span className="text-[10px] text-white/30 [font-family:ui-sans-serif,system-ui,sans-serif]">
             Loop #{String(index + 1).padStart(2, "0")}
           </span>
+          <span className="text-[10px] text-white/20 [font-family:ui-sans-serif,system-ui,sans-serif]">
+            {playing ? "● PLAYING" : "READY"}
+          </span>
         </div>
       </div>
-
-      {/* Hidden SoundCloud iframe */}
-      <iframe
-        ref={iframeRef}
-        src={loop.scUrl}
-        className="absolute opacity-0 pointer-events-none w-0 h-0"
-        allow="autoplay"
-        title={loop.title}
-      />
     </div>
   );
 }
 
+/* ------------------------------------------------------------------ */
+/*  Section                                                            */
+/* ------------------------------------------------------------------ */
 const Authentic = () => {
   return (
     <section id="authentic" className="bg-black py-20 md:py-28">
-      {/* SoundCloud Widget API */}
-      <Script src="https://w.soundcloud.com/player/api.js" strategy="lazyOnload" />
-
       <div className="mx-auto max-w-[1200px] flex flex-col items-center justify-center px-6">
         <h2 className="font-display text-2xl font-bold uppercase text-center leading-tight tracking-[0.02em] text-white md:text-4xl">
           AUTHENTIC DRUMS. <span className="text-[#42FF00]">NO LIMITS.</span>
