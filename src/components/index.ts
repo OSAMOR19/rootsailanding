@@ -9,4 +9,5 @@ export { WhyRootSection } from "./WhyRootSection";
 export { PricingSection } from "./PricingSection";
 export { FAQSection } from "./FAQSection";
 export { CTASection } from "./CTASection";
+export { DownloadSection } from "./DownloadSection";
 export { Footer } from "./Footer";

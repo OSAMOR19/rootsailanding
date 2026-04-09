@@ -5,6 +5,7 @@ import {
   WorkflowShowcaseSection,
   WhatMakesRootsSpecialSection,
   PricingSection,
+  DownloadSection,
   FAQSection,
   Footer,
 } from "@/components";
@@ -20,6 +21,7 @@ export default function Home() {
         <WhatMakesRootsSpecialSection />
         <Authentic />
         <PricingSection />
+        <DownloadSection />
         <FAQSection />
       </main>
       <Footer />

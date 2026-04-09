@@ -9,9 +9,9 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "Root – Wireframe and Design Starter Kit",
+  title: "ROOTS – AI-Powered African Drum Plugin",
   description:
-    "Speed up your design process with the most innovative UI Kit. 300 components, 120 wireframe layouts, 24 illustrations.",
+    "ROOTS is an AI-powered desktop app that helps producers find the perfect African-inspired drum loops. Download for Mac and Windows.",
 };
 
 export default function RootLayout({
@@ -23,9 +23,9 @@ export default function RootLayout({
     <html
       lang="en"
       className={`h-full antialiased`}
-      // className={`${bebasNeue.variable} h-full antialiased`}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col" suppressHydrationWarning>{children}</body>
     </html>
   );
 }

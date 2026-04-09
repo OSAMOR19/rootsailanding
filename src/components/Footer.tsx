@@ -115,14 +115,14 @@ export function Footer() {
           </h2>
           <div className="mt-8 flex justify-center gap-4 md:mt-10">
             <Link
-              href="#"
+              href="https://github.com/OSAMOR19/rootsDESKTOP/releases/latest/download/Roots-Setup-1.0.0.exe"
               aria-label="Download for Windows"
               className="flex size-14 items-center justify-center rounded-xl bg-[#22C55E] text-white transition hover:bg-[#16a34a] md:size-16"
             >
               <FaWindows className="size-7 md:size-8" aria-hidden />
             </Link>
             <Link
-              href="#"
+              href="https://github.com/OSAMOR19/rootsDESKTOP/releases/latest/download/Roots-1.0.0.dmg"
               aria-label="Download for Mac"
               className="flex size-14 items-center justify-center rounded-xl bg-[#22C55E] text-white transition hover:bg-[#16a34a] md:size-16"
             >
