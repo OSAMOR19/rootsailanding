@@ -93,11 +93,11 @@ export function DownloadSection() {
           className={`mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center ${anim(mounted, visible, "fade-up", "260ms").className}`}
           style={anim(mounted, visible, "fade-up", "260ms").style}
         >
-          {DOWNLOADS.map(({ os, label, sublabel, href, icon: Icon, id }) => (
-            <Link
+          {DOWNLOADS.map(({ os, label, sublabel, icon: Icon, id }) => (
+            <button
               key={os}
               id={id}
-              href={href}
+              onClick={() => alert("Coming soon! The ROOTS Desktop app is currently in development.")}
               aria-label={label}
               className="group flex w-full max-w-xs items-center gap-4 rounded-2xl border border-white/10 bg-white/5 px-6 py-5 text-left transition-all duration-300 hover:border-[#2DDB16]/50 hover:bg-[#2DDB16]/10 hover:shadow-[0_0_28px_rgba(45,219,22,0.15)] hover:-translate-y-0.5 sm:w-auto sm:min-w-[220px]"
             >
@@ -108,7 +108,7 @@ export function DownloadSection() {
                 <span className="block text-sm font-semibold text-white">{label}</span>
                 <span className="block text-xs text-white/50">{sublabel}</span>
               </span>
-            </Link>
+            </button>
           ))}
         </div>
 
