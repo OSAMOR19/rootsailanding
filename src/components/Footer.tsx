@@ -5,7 +5,7 @@ import {
   FaWindows,
   FaYoutube,
 } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import { FaTiktok } from "react-icons/fa6";
 import Image from "next/image"
 
 const productLinks = [
@@ -21,9 +21,9 @@ const supportLinks = [
 ];
 
 const socials = [
-  { label: "X", href: "#", Icon: FaXTwitter },
-  { label: "YouTube", href: "#", Icon: FaYoutube },
-  { label: "Instagram", href: "#", Icon: FaInstagram },
+  { label: "YouTube", href: "https://www.youtube.com/@manifxtaudio", Icon: FaYoutube },
+  { label: "Instagram", href: "https://instagram.com/manifxt.audio", Icon: FaInstagram },
+  { label: "TikTok", href: "https://tiktok.com/@manifxtaudio", Icon: FaTiktok },
 ] as const;
 
 export function Footer() {
@@ -48,6 +48,8 @@ export function Footer() {
                 <Link
                   key={label}
                   href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label={label}
                   className="text-white transition hover:text-[#22C55E]"
                 >
