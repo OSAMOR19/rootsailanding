@@ -25,6 +25,7 @@ const LITE_FEATURES: { text: string; included: boolean }[] = [
 
 export function PricingSection() {
   const [mounted, setMounted] = useState(false);
+  const [isAnnually, setIsAnnually] = useState(false);
   const [headerRef, headerVisible] = useInView();
   const [cardsRef, cardsVisible] = useInView({ threshold: 0.08 });
   useEffect(() => { setMounted(true); }, []);
@@ -53,8 +54,11 @@ export function PricingSection() {
             className={`relative flex h-full flex-col rounded-2xl bg-[#165E0C] p-5 ring-1 ring-white/10 md:p-6${mounted ? ` anim-hidden${cardsVisible ? " anim-visible slide-left" : ""}` : ""}`}
             style={{ "--delay": "0ms" } as React.CSSProperties}
           >
-            <div className="mb-4 flex items-start justify-between gap-3">
-              <PricingBillingToggle />
+            <div className="mb-4 flex items-center justify-between gap-3">
+              <PricingBillingToggle
+                checked={isAnnually}
+                onChange={setIsAnnually}
+              />
               <span className="rounded-full bg-amber-500 px-2 py-0.5 text-[9px] font-bold uppercase tracking-wide text-black [font-family:ui-sans-serif,system-ui,sans-serif]">
                 Intro price
               </span>
@@ -69,13 +73,13 @@ export function PricingSection() {
 
             <div className="mt-5">
               <p className="font-display text-3xl font-bold text-white md:text-4xl">
-                $5.00{" "}
+                {isAnnually ? "$50.00" : "$5.00"}{" "}
                 <span className="text-base font-bold uppercase md:text-lg">
-                  P/Month
+                  {isAnnually ? "P/Year" : "P/Month"}
                 </span>
               </p>
               <p className="mt-0.5 text-xs text-[#6ee7a8]/80 [font-family:ui-sans-serif,system-ui,sans-serif]">
-                Billed monthly
+                {isAnnually ? "Billed annually" : "Billed monthly"}
               </p>
             </div>
 

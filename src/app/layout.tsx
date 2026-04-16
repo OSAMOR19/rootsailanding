@@ -9,9 +9,12 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  title: "ROOTS – AI-Powered African Drum Plugin",
+  title: "ROOTS - AI-Powered African Drum Plugin",
   description:
     "ROOTS is an AI-powered desktop app that helps producers find the perfect African-inspired drum loops. Download for Mac and Windows.",
+  icons: {
+    icon: "/logo.avif",
+  },
 };
 
 export default function RootLayout({
