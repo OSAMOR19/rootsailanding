@@ -17,6 +17,21 @@ export type FeatureRowProps = {
 };
 
 function FeatureRowImage({ src }: { src: string }) {
+  if (src.endsWith(".mp4")) {
+    return (
+      <div className="relative aspect-[1200/640] w-full overflow-hidden rounded-[16px] border border-white/[0.06] bg-black">
+        <video
+          src={src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="h-full w-full object-cover"
+        />
+      </div>
+    );
+  }
+
   if (src.endsWith(".svg")) {
     return (
       // eslint-disable-next-line @next/next/no-img-element
