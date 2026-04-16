@@ -7,7 +7,7 @@ import { PricingBillingToggle } from "./PricingBillingToggle";
 import { useInView } from "./useInView";
 
 const PRO_FEATURES = [
-  "Unlimited AI generations",
+  "Unlimited AI Recommendations",
   "Unlimited downloads",
   "Full library access",
   "Stems download",

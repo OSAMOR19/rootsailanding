@@ -112,7 +112,7 @@ export function Footer() {
                 backgroundClip: "text",
               }}
             >
-              Download ON
+              Coming soon to
             </span>
           </h2>
           <div className="mt-8 flex justify-center gap-4 md:mt-10">

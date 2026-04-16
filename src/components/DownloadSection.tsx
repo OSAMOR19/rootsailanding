@@ -57,9 +57,9 @@ export function DownloadSection() {
 
         {/* Badge */}
         <p {...anim(mounted, visible, "fade-in", "0ms")}
-          className={`mb-6 inline-block text-sm font-medium rounded-[20px] bg-[#2DDB161A] py-1 px-4 uppercase tracking-widest text-[#2DDB16] ${anim(mounted, visible, "fade-in", "0ms").className}`}
+          className={`mb-6 inline-block text-sm font-medium rounded-[20px] bg-yellow-500/10 py-1 px-4 uppercase tracking-widest text-yellow-500 ${anim(mounted, visible, "fade-in", "0ms").className}`}
         >
-          Available Now
+          Coming Soon
         </p>
 
         {/* Headline */}
