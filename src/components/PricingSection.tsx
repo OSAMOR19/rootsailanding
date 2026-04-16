@@ -92,7 +92,7 @@ export function PricingSection() {
             </ul>
 
             <Link
-              href="#download"
+              href="https://rootsai.space/"
               className="mt-6 inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full bg-[#2DDB16] text-xs font-semibold uppercase tracking-wide text-white transition-all duration-200 hover:bg-[#26c414] hover:shadow-[0_0_22px_rgba(45,219,22,0.4)] hover:scale-[1.02] [font-family:ui-sans-serif,system-ui,sans-serif] md:h-12 md:text-sm"
             >
               Start Creating
@@ -134,7 +134,7 @@ export function PricingSection() {
             </ul>
 
             <Link
-              href="#"
+              href="https://rootsai.space/"
               className="mt-6 inline-flex h-11 w-full shrink-0 items-center justify-center rounded-full bg-[#2DDB16] text-xs font-semibold uppercase tracking-wide text-white transition-all duration-200 hover:bg-[#26c414] hover:shadow-[0_0_22px_rgba(45,219,22,0.4)] hover:scale-[1.02] [font-family:ui-sans-serif,system-ui,sans-serif] md:h-12 md:text-sm md:mt-auto"
             >
               Get started for free
