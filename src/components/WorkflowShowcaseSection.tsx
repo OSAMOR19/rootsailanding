@@ -32,15 +32,15 @@ export function WorkflowShowcaseSection() {
         {/* Video */}
         <div
           ref={videoRef}
-          className={`w-[80%] lg:h-[500px] mt-10${mounted ? ` anim-hidden${videoVisible ? " anim-visible scale-in" : ""}` : ""}`}
+          className={`w-[80%] mt-10${mounted ? ` anim-hidden${videoVisible ? " anim-visible scale-in" : ""}` : ""}`}
           style={{ "--delay": "100ms" } as React.CSSProperties}
         >
-          <video
-            src="/workflow.mp4"
-            controls
-            loop
-            muted
-            className="h-auto w-full rounded-[20px] aspect-[800/640] shadow-[0_16px_60px_rgba(66,255,0,0.07)]"
+          <iframe
+            src="https://www.youtube.com/embed/TLcpCtnKSUk?rel=0"
+            title="Roots Workflow"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowFullScreen
+            className="h-full w-full rounded-[20px] aspect-video shadow-[0_16px_60px_rgba(66,255,0,0.07)] border-0"
           />
         </div>
       </div>
