@@ -18,7 +18,7 @@ const PRO_FEATURES = [
 
 const LITE_FEATURES: { text: string; included: boolean }[] = [
   { text: "Free Forever", included: true },
-  { text: "5 AI generations/month", included: true },
+  { text: "5 AI Recommendations/month", included: true },
   { text: "5 free downloads/month", included: true },
   { text: "No stems download", included: false },
 ];
