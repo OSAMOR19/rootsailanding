@@ -11,7 +11,7 @@ const PRO_FEATURES = [
   "Unlimited downloads",
   "Full library access",
   "Stems download",
-  "New drops daily",
+  "New drops weekly",
   "Royalty free",
   "Cancel anytime",
 ];

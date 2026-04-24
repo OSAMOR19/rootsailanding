@@ -9,10 +9,9 @@ const CARDS = [
     accent: "green" as const,
     quote:
       "ROOTS changed my workflow completely. The AI understands exactly what I need, and the drum library is incredible. It's like having a session drummer who knows every African rhythm.",
-    name: "Marcus Johnson",
-    role: "Grammy Nominated Producer",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=128&h=128&fit=crop&crop=face&auto=format",
+    name: "Beatsbyhcien",
+    role: "Producer & Beat-maker",
+    avatarSrc: "/beatsbyhcien.jpeg",
     rating: 5,
   },
   {
@@ -28,10 +27,9 @@ const CARDS = [
     accent: "green" as const,
     quote:
       "Finally, a drum tool that gets Afrobeats. The library is deep and the AI matching is on point. This is a game changer for my production sessions.",
-    name: "David Akinola",
-    role: "Sound Engineer",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=128&h=128&fit=crop&crop=face&auto=format",
+    name: "Sanmi Matthew",
+    role: "Music Producer",
+    avatarSrc: "/sanmi_matthew.jpeg",
     rating: 5,
   },
   {
@@ -47,20 +45,18 @@ const CARDS = [
     accent: "green" as const,
     quote:
       "I've tried every drum plugin out there. ROOTS is the only one that truly understands the African sound. The AI recommendations are scary accurate.",
-    name: "Tunde Balogun",
-    role: "Afrobeats Artist & Producer",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=128&h=128&fit=crop&crop=face&auto=format",
+    name: "Producer Mykah",
+    role: "Afrobeats Producer",
+    avatarSrc: "/producer_mykah.jpeg",
     rating: 5,
   },
   {
     accent: "white" as const,
     quote:
       "From the drag-and-drop workflow to the smart recommendations, everything about ROOTS feels premium. It's become my secret weapon in the studio.",
-    name: "Kemi Adeyemi",
-    role: "Mixing Engineer",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=128&h=128&fit=crop&crop=face&auto=format",
+    name: "Rvmen",
+    role: "Music Producer",
+    avatarSrc: "/rvmen.jpeg",
     rating: 5,
   },
 ];

@@ -18,7 +18,7 @@ const FAQ_ITEMS: { q: string; a: string }[] = [
   },
   {
     q: "What is included in ROOTS?",
-    a: "You get access to the drum library, AI matching, downloads based on your plan, and regular content drops. Pro unlocks unlimited generations, full library access, and stems where available.",
+    a: "You get access to the drum library, AI matching, downloads based on your plan, and regular content drops. Pro unlocks unlimited recommendations, full library access, and stems where available.",
   },
   {
     q: "Does ROOTS require an internet connection to work?",

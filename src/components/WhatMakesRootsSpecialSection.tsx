@@ -19,7 +19,7 @@ const FEATURES = [
     icon: <Cloud className={ICON_CLASS} strokeWidth={2} aria-hidden />,
     title: "Create With Prompts",
     description:
-      "Tell ROOTS what you want. From 'mid-tempo abstract groove' to 'dark weapons house' ROOTS your prompt to guide intelligent drum recommendations without forcing creative decisions.",
+      "Tell ROOTS what you want. From 'Energetic Amapiano Full Drums' to 'chill mellow Afrobeats Percussions', ROOTS uses your prompt to guide intelligent drum recommendations without forcing creative decisions.",
     imageSrc: "/rootsGIF/create_with_prompts.mp4",
   },
   {

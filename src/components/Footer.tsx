@@ -136,7 +136,16 @@ export function Footer() {
         </div>
 
         <p className="mt-16 text-center text-xs text-zinc-500 [font-family:ui-sans-serif,system-ui,sans-serif] md:mt-20">
-          All rights reserved Roots 2026
+          All rights reserved{" "}
+          <Link
+            href="https://manifxtaudio.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-zinc-400 hover:text-white transition-colors duration-200 underline underline-offset-2"
+          >
+            Manifxt Audio
+          </Link>{" "}
+          2026
         </p>
       </div>
     </footer>
