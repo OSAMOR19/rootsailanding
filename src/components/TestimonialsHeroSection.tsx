@@ -17,29 +17,11 @@ const CARDS = [
   {
     accent: "white" as const,
     quote:
-      "ROOTS saves me hours. The prompt feature is genius. I just describe what I want and it delivers every single time, no tweaking needed.",
-    name: "Paul Ogedengbe",
-    role: "Producer & Beat-maker",
-    avatarSrc: "/mostafa.jpg",
-    rating: 5,
-  },
-  {
-    accent: "green" as const,
-    quote:
       "Finally, a drum tool that gets Afrobeats. The library is deep and the AI matching is on point. This is a game changer for my production sessions.",
     name: "Sanmi Matthew",
     role: "Music Producer",
     avatarSrc: "/sanmi_matthew.jpeg",
     rating: 5,
-  },
-  {
-    accent: "white" as const,
-    quote:
-      "The quality of the drum samples is unmatched. Real human-made drums that actually sound authentic — not the same recycled loops everyone else uses.",
-    name: "Vince Onyeka",
-    role: "Music Producer",
-    avatarSrc: "/vince.jpg",
-    rating: 4,
   },
   {
     accent: "green" as const,
